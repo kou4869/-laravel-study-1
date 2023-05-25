@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
-
+use App\Http\Controllers\RuqestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +37,10 @@ Route::get('/omikuji', [GameController::class, 'omikuji']);
 
 // モンティ・ホール問題
 Route::get('/monty-hall', [GameController::class, 'montyHall']);
+
+//リクエスト
+Route::get('/form', [RuqestController::class, 'form']);
+Route::get('/query-strings', [RuqestController::class, 'queryStrings']);
+Route::get('/users/{id}', [RuqestController::class, 'profile'])->name(name: 'profile');
+Route::get('/products/{category}/{year}', [RuqestController::class, 'profileArchive']);
+Route::get('/route-link', [RuqestController::class, 'routeLink']);
