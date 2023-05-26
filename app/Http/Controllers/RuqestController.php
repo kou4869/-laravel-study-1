@@ -11,6 +11,19 @@ class RuqestController extends Controller
     return view('form');
   }
 
+  public function loginForm()
+  {
+    return view('login');
+  }
+
+  public function login(Request $request)
+  {
+    if ($request->get('email') === 'user@example.com' && $request->get('password') === '12345678') {
+        return 'ログイン成功';
+    }
+    return 'ログイン失敗';
+  }
+  
   public function queryStrings(Request $request)
   {
 /*     $keyword = "未設定";
@@ -39,4 +52,6 @@ class RuqestController extends Controller
     $url = route('profile', ['id' => 1, 'photos' => 'yes']);
     return "プロフィールページのURLは". $url;
   }
+
+
 }

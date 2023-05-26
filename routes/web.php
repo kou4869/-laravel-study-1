@@ -44,3 +44,7 @@ Route::get('/query-strings', [RuqestController::class, 'queryStrings']);
 Route::get('/users/{id}', [RuqestController::class, 'profile'])->name(name: 'profile');
 Route::get('/products/{category}/{year}', [RuqestController::class, 'profileArchive']);
 Route::get('/route-link', [RuqestController::class, 'routeLink']);
+
+//ログイン機能
+Route::get('/login', [RuqestController::class, 'loginForm']);
+Route::post('/login', [RuqestController::class, 'login'])->name(name: 'login');
