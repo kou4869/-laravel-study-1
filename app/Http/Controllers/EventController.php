@@ -16,9 +16,10 @@ class EventController extends Controller
  // 登録処理・登録画面表示用
   public function store(Request $request)
   {
-    Log::debug("イベント名:". $request->get('title'));
+    $title = $request->get('title');
+    Log::debug("イベント名:". $title);
     // ↑だけだと画面に何も出力されず、真っ白のビューファイルが出力されてしまうので、↓で登録フォームが表示されるようにview関数で指定を行う
-    return to_route('events.create');
+    return to_route('events.create')->with('success', $title. "を登録しました");
   }
 
 }
