@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\RuqestController;
+use App\Http\Controllers\EventController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +52,6 @@ Route::get('/route-link', [RuqestController::class, 'routeLink']);
 //ログイン機能
 Route::get('/login', [RuqestController::class, 'loginForm']);
 Route::post('/login', [RuqestController::class, 'login'])->name(name: 'login');
+
+//イベント
+Route::resource('/events', EventController::class)->only(['create', 'store']);
